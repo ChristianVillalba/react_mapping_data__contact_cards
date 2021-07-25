@@ -3,11 +3,27 @@ import Card from "./Card";
 import contacts from "../contacts";
 // We call the array composed by JS objects (Python dictionaries )
 
+function createCard(contact) {
+  return (
+    <Card
+      key={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      tel={contact.phone}
+      email={contact.email}
+      id={contact.id}
+    />
+  );
+}
+
 function App(props) {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
-      <Card
+      {contacts.map(createCard)}
+
+      {/* Cards createad one by one */}
+      {/* <Card
         name={contacts[0].name}
         img={contacts[0].imgURL}
         tel={contacts[0].phone}
@@ -24,7 +40,7 @@ function App(props) {
         img={contacts[2].imgURL}
         tel={contacts[2].phone}
         email={contacts[2].email}
-      />
+      /> */}
     </div>
   );
 }
